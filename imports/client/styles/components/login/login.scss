@@ -1,0 +1,36 @@
+.wrapper__login-box{
+  padding-top: 60px;
+  text-align: center;
+      background: -webkit-linear-gradient(top, #260387 0%,#650dd8 100%);
+      h3{
+        color: orange;
+      }
+
+}
+
+.react-tabs__tab--selected {
+    background: orange;
+    border-color: #310595;
+    color: white;
+    border-radius: 5px 5px 0 0;
+}
+
+.react-tabs__tab-list {
+    border-bottom: 1px solid #ffa500;
+    margin: 0 0 10px;
+    padding: 0;
+}
+
+.react-tabs__tab {
+    color:orange;
+}
+.react-tabs__tab--selected {
+    color:white !important;
+}
+
+
+.submitLogin_register_button{
+  color: #fff !important;
+background-color: #ffa500 !important;
+border-color: #ffffff !important;
+}

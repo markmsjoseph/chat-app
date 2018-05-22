@@ -1,0 +1,26 @@
+{
+  "name": "short-link",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.0.0-beta.36",
+    "babel": "^6.23.0",
+    "bcrypt": "^2.0.1",
+    "history": "^4.7.2",
+    "meteor-node-stubs": "^0.3.2",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-dropzone": "^3.0.0",
+    "react-flip-move": "^3.0.1",
+    "react-modal": "^3.3.2",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-tabs": "^2.2.1",
+    "simpl-schema": "^1.4.2"
+  },
+  "engines": {
+    "node": "v8.9.4"
+  }
+}

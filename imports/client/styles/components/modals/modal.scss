@@ -1,0 +1,48 @@
+$purple:#6924c4;
+.ReactModal__Content.ReactModal__Content--after-open{
+  height:300px;
+  width:600px;
+  color:red;
+  text-align:center;
+  color: white;
+    font-size: 18px;
+    font-weight: 600;
+
+}
+
+
+.ReactModal__Content.ReactModal__Content--after-open button{
+  font-size: 14px;
+  border: 3px solid #ffa401;
+  color: black;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: #fefeff;
+  color: #6924c4;
+  margin: 15px;
+}
+.ReactModal__Content.ReactModal__Content--after-open button:hover{
+  font-size: 14px;
+  border: 3px solid #ffa401;
+  color: $purple;
+  padding: 10px;
+  border-radius: 4px;
+  background-color: white;
+  color: #6924c4;
+  margin: 15px;
+}
+
+.ReactModal__Content {
+  position: fixed !important;
+   top: 50%!important;
+   left: 50%!important;
+   margin-top: -50px!important;
+   margin-left: -300px!important;
+  border: 10px solid rgb(255, 164, 1);
+  background: rgb(105, 36, 196) !important;
+  overflow: auto;
+  border-radius: 15px;
+  outline: none;
+  padding: 20px;
+
+ }

@@ -1,0 +1,91 @@
+
+
+.wrapper{
+  margin: 0 auto;
+  padding: 1.3rem;
+  text-align:center;
+}
+
+.wrapper__form{
+  margin: 0 auto;
+  padding: 1.3rem;
+  text-align: center;
+  padding: 20px 12px 10px 20px;
+  font: 13px Arial, Helvetica, sans-serif;
+  max-width: 500px;
+}
+//top background color where main heading is
+.wrapper-top{
+background: -webkit-linear-gradient(top, #260387 0%,#650dd8 100%); /* Chrome10-25,Safari5.1-6 */
+}
+.wrapper-top-search{
+  background: -webkit-linear-gradient(top, #640cd7 0%, #7047a7 100%);
+}
+.wrapper-top-search-filters{
+  background: -webkit-linear-gradient(top, #640cd7 0%, #7047a7 100%);
+}
+//top headings under sell your stuff ie. add post etc
+.wrapper-top-main-links{
+    text-align: center;
+    a{
+     display: inline-block;
+     padding: 20px;
+     color: white;
+     font-size: 24px;
+     font-family: sans-serif;
+     text-decoration: none;
+   }
+
+   a:hover{
+     color: orange;
+
+   }
+
+}
+
+.wrapper_search-and-filter{
+  margin: 0 auto;
+  background-color:#6da7d6;
+  padding: 1.3rem;
+}
+.wrapper__post{
+    display: inline-block;
+     transition: all .2s ease-in-out;
+}
+
+.wrapper__post:hover{
+    transform: scale(1.1);
+}
+
+.wrapper__box{
+    border: 4px solid;
+    border-color: white;
+    background-color: #ffffff;
+    border-radius: 19px;
+    width: 800px;
+     height: 400px;
+}
+
+
+
+.wrapper__main-buttons{
+  margin: 0 auto;
+  padding: 1.3rem;
+  text-align: center;
+
+}
+
+.wrapper_sort-buttons{
+  font-size: 14px;
+    border: 1px solid transparent;
+    color: black;
+    padding: 3px;
+    border-radius: 4px;
+    position: absolute;
+    right: 10px;
+}
+
+.wrapper_search{
+  margin: 0 auto;
+  max-width: 40rem;
+}
