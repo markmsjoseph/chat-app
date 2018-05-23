@@ -12,10 +12,8 @@ import { Accounts } from 'meteor/accounts-base';
 // If you want to have a method where only the client side has an effect you should use a standard js method instead, without the var keyword to ensure its globally scoped (and can be accessed from other client side files)
 //
 
-import '../imports/api/post';
-import '../imports/api/images';
 import '../imports/api/users';
-import '../imports/api/chat';//needed because meteor method calls on the client need corresponding calls on the server
+
 Meteor.startup(() => {
 
 

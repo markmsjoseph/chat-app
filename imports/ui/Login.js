@@ -19,7 +19,7 @@ export default class Login extends React.Component {
     componentWillMount() {
        if (Meteor.userId()){
          console.log("Has user but trying to go to authenticated page: In ComponentDidMount from Login.js");
-             this.props.history.push('/home');
+             this.props.history.push('/');
        }
 
    }
@@ -73,7 +73,7 @@ export default class Login extends React.Component {
   render() {
     return (
       <div>
-<Link to ="/" className = "logoutButton">Back to Home</Link>
+            <Link to ="/" className = "logoutButton">Back to Home</Link>
                 <div className="vertical-center" >
                       <div className="wrapper wrapper__box wrapper__login-box">
                             <Tabs defaultIndex={1} onSelect={index => console.log(index)}>
@@ -84,7 +84,7 @@ export default class Login extends React.Component {
                                    </TabList>
 
                                    <TabPanel>
-                                        <p className="login-error">  {this.state.error ? <p>{this.state.error}</p> : undefined }</p>
+                                        <h4 className="login-error">  {this.state.error ? <p>{this.state.error}</p> : undefined }</h4>
                                           <h3>Already have an account? You can login below</h3>
                                           <form onSubmit={this.onSubmitHandler.bind(this)} noValidate>
                                               <input className = 'form-control form-control-lg' type="email" name="email" ref = "myEmail" placeholder = "email"/>
