@@ -13,6 +13,7 @@ import { Accounts } from 'meteor/accounts-base';
 //
 
 import '../imports/api/users';
+import '../imports/api/chat';//needed because meteor method calls on the client need corresponding calls on the server
 
 Meteor.startup(() => {
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import LoginHeader from './LoginHeader';
+
+import {Session} from 'meteor/session';
 // IN ORDER TO VERIFY EMAILS ETC, WE NEED AN SMTP ACCOUNT. THIS STEP WAS SKIPPED but
 // THIS URL HAS DATA ON IT https://themeteorchef.com/tutorials/sign-up-with-email-verification AND
 //https://docs.meteor.com/api/passwords.html#Accounts-verifyEmail
 
 export default class Login extends React.Component {
-
 
     constructor(props){
       super(props);
@@ -17,13 +17,8 @@ export default class Login extends React.Component {
     }
 
     componentWillMount() {
-       if (Meteor.userId()){
-         console.log("Has user but trying to go to authenticated page: In ComponentDidMount from Login.js");
-             this.props.history.push('/');
-       }
-
-   }
-
+      Session.set('currentPagePrivacy', this.props.priavteOrPublic);//set session id
+    }
 
     onSubmitHandler(e){
         e.preventDefault();
@@ -43,6 +38,7 @@ export default class Login extends React.Component {
         });
 
     }
+
     onSubmitHandlerRegister(e){
         e.preventDefault();
         //all refs are stored on the this.refs object, trim is to take off all leading and after spaces
@@ -70,55 +66,58 @@ export default class Login extends React.Component {
 
     }
 
-  render() {
-    return (
-      <div>
-            <Link to ="/" className = "logoutButton">Back to Home</Link>
-                <div className="vertical-center" >
-                      <div className="wrapper wrapper__box wrapper__login-box">
-                            <Tabs defaultIndex={1} onSelect={index => console.log(index)}>
+    render() {
+          return (
+            <div className="container">
+                  <div className="row">
+                  <div className="boxed-view">
+                        <div className="boxed-view__box">
+                                  <Tabs defaultIndex={1} onSelect={index => console.log(index)}>
 
-                                   <TabList>
-                                     <Tab>Login</Tab>
-                                     <Tab>Register</Tab>
-                                   </TabList>
+                                         <TabList>
+                                           <h1> Welcome to the poerty app</h1>
+                                           <Tab>Login</Tab>
+                                           <Tab>Register</Tab>
+                                         </TabList>
 
-                                   <TabPanel>
-                                        <h4 className="login-error">  {this.state.error ? <p>{this.state.error}</p> : undefined }</h4>
-                                          <h3>Already have an account? You can login below</h3>
-                                          <form onSubmit={this.onSubmitHandler.bind(this)} noValidate>
-                                              <input className = 'form-control form-control-lg' type="email" name="email" ref = "myEmail" placeholder = "email"/>
-                                              <br></br>
-                                              <input className = 'form-control form-control-lg' type="password" name="password" ref = "myPassword" placeholder= "password"/>
-                                              <br></br>
-                                              <button className='submitLogin_register_button btn btn-primary btn-lg'> Login</button>
-                                          </form>
-                                   </TabPanel>
+                                         <TabPanel>
+                                              <h4 className="login-error">  {this.state.error ? <p>{this.state.error}</p> : undefined }</h4>
+                                                <h3>Already have an account? You can login below</h3>
+                                                <form onSubmit={this.onSubmitHandler.bind(this)} noValidate>
+                                                    <input className = 'form-control form-control-lg' type="email" name="email" ref = "myEmail" placeholder = "email"/>
+                                                    <br></br>
+                                                    <input className = 'form-control form-control-lg' type="password" name="password" ref = "myPassword" placeholder= "password"/>
+                                                    <br></br>
+                                                    <button className='button'> Login</button>
+                                                </form>
+                                         </TabPanel>
 
-                                   <TabPanel>
-                                        <h3>Register with us below to login</h3>
-                                          <p className="login-error">  {this.state.error ? <p>{this.state.error}</p> : undefined }</p>
+                                         <TabPanel>
+                                              <h3>Register with us below to login</h3>
+                                                <p className="login-error">  {this.state.error ? <p>{this.state.error}</p> : undefined }</p>
 
-                                         <form onSubmit={this.onSubmitHandlerRegister.bind(this)} noValidate>
+                                               <form onSubmit={this.onSubmitHandlerRegister.bind(this)} noValidate>
 
 
-                                                <input className = 'form-control form-control-lg' type="text" name="userName" ref = "userName" placeholder = "User Name"/>
-                                                <br></br>
+                                                      <input className = 'form-control form-control-lg' type="text" name="userName" ref = "userName" placeholder = "User Name"/>
+                                                      <br></br>
 
-                                                <input className = 'form-control form-control-lg' type="email" name="email" ref = "myEmail" placeholder = "Email"/>
-                                               <br></br>
+                                                      <input className = 'form-control form-control-lg' type="email" name="email" ref = "myEmail" placeholder = "Email"/>
+                                                     <br></br>
 
-                                               <input className = 'form-control form-control-lg' type="password" name="password" ref = "myPassword" placeholder= "Password"/>
-                                               <br></br>
+                                                     <input className = 'form-control form-control-lg' type="password" name="password" ref = "myPassword" placeholder= "Password"/>
+                                                     <br></br>
 
-                                                <button className=' submitLogin_register_button btn btn-primary btn-lg'> Create Account</button>
-                                         </form>
+                                                      <button className=' button'> Create Account</button>
+                                               </form>
 
-                                  </TabPanel>
-                            </Tabs>
-                </div>
-                </div>
-      </div>
-  );
-  }
+                                        </TabPanel>
+                                  </Tabs>
+                      </div>
+                      </div>
+                          </div>
+            </div>
+        );
+    }
+
 }

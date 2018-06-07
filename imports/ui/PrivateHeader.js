@@ -11,12 +11,17 @@ export default class PrivateHeader extends React.Component {
   render() {
     return (
       <div >
-        <h1 className = "title-bar"> {this.props.title}</h1>
-        <h3 className = "subtitle-bar"> {this.props.subtitle}</h3>
-        <button className = "logoutButton" onClick={this.onLogout.bind(this)}>Logout</button>
+        <button className = "header-logoutButton float-right mt-2" onClick={this.onLogout.bind(this)}>Logout</button>
+        <h1 className = "header-title text-center"> {this.props.title}</h1>
+        <h3 className = "subtitle-bar text-center"> {this.props.subtitle}</h3>
+
       </div>
     );
   }
 
 
   }
+
+  PrivateHeader.defaultProps = {
+  title: 'Chat App'
+};

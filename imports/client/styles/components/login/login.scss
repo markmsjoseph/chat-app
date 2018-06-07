@@ -1,36 +1,88 @@
-.wrapper__login-box{
-  padding-top: 60px;
+.boxed-view {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+}
+
+
+.boxed-view__box {
+  background-color: $darkColor;
+  border: 1px solid grey;
+  color: white;
+  padding: 2.4rem;
   text-align: center;
-      background: -webkit-linear-gradient(top, #260387 0%,#650dd8 100%);
-      h3{
-        color: orange;
-      }
 
 }
 
-.react-tabs__tab--selected {
-    background: orange;
-    border-color: #310595;
-    color: white;
-    border-radius: 5px 5px 0 0;
-}
-
+//************************************************************ TABS STYLING *********************************************************
 .react-tabs__tab-list {
     border-bottom: 1px solid #ffa500;
     margin: 0 0 10px;
     padding: 0;
 }
 
-.react-tabs__tab {
-    color:orange;
-}
 .react-tabs__tab--selected {
     color:white !important;
 }
 
 
+.react-tabs__tab-list {
+  border-bottom: 1px solid #aaa;
+  margin: 0 0 10px;
+  padding: 0;
+}
+
+.react-tabs__tab {
+  display: inline-block;
+  border: 1px solid transparent;
+  border-bottom: none;
+  bottom: -1px;
+  position: relative;
+  list-style: none;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.react-tabs__tab--selected {
+  background: #fff;
+  border-color: #aaa;
+  color: black !important;
+  border-radius: 5px 5px 0 0;
+}
+
+.react-tabs__tab--disabled {
+  color: black;
+  cursor: default;
+}
+
+.react-tabs__tab:focus {
+  box-shadow: 0 0 5px hsl(208, 99%, 50%);
+  border-color: hsl(208, 99%, 50%);
+  outline: none;
+}
+
+.react-tabs__tab:focus:after {
+  content: "";
+  position: absolute;
+  height: 5px;
+  left: -4px;
+  right: -4px;
+  bottom: -5px;
+  background: #fff;
+}
+
+.react-tabs__tab-panel {
+  display: none;
+}
+
+.react-tabs__tab-panel--selected {
+  display: block;
+}
+
 .submitLogin_register_button{
   color: #fff !important;
-background-color: #ffa500 !important;
-border-color: #ffffff !important;
+  background-color: #ffa500 !important;
+  border-color: #ffffff !important;
 }

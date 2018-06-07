@@ -26,3 +26,5 @@ cfs:gridfs
 okgrow:image-upload
 twbs:bootstrap
 cfs:filesystem
+react-meteor-data
+alexwine:bootstrap-4

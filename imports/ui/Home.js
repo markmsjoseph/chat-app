@@ -1,60 +1,54 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PrivateHeader from './PrivateHeader';
+import { createContainer } from 'meteor/react-meteor-data';
+import {Session} from 'meteor/session';
+
+export class Home extends React.Component {
+
+      constructor(props) {
+        super(props);
+      }
+
+      componentWillMount() {
+          //set the global session variable currentPagePrivacy to the value that was passed in as props from the route component in main.js
+          Session.set('currentPagePrivacy', this.props.priavteOrPublic);//set session id
+      }
+      renderAllUsers(){
+            return this.props.allUsers.map((user)=>{
+                let redirectToChat = `/home/${user._id}`;
+                return(
+                  <div>
+                    <p key = {user._id}>{user.username}</p>
+                    <Link to ={redirectToChat} className='goToChat__button'>Chat with {user.username}</Link>
+                  </div>
+                )
+            })
+      }
+
+      render() {
+          return (
+                  <div>
+                      <div className = "container-fluid header">
+                            <div className = "jumborton">
+                                <p className = "header-loggedInAs text-right">Logged in as:{this.props.username} </p>
+                                  <PrivateHeader   />
+
+                            </div>
+                        </div>
+
+                          {this.renderAllUsers()}
+                  </div>
+          );
+      }
+
+}
 
 
-
-export default class Home extends React.Component {
-
-  constructor(props) {
-    super(props);
-        this.state = {
-        username:""
-        };
-  }
-
-    componentWillMount() {
-        if(!Meteor.userId()) {
-          console.log("No user but trying to go back: In ComponentDidMount from Link.js");
-          this.props.history.push('/');
-        }
-
-    }
-
-    componentDidMount() {
-      this.postTracker =  Tracker.autorun(() => {
-          console.log("USERNAME-----------------------:", Meteor.user());
-          if(Meteor.user()){
-            this.setState(()=>{
-              return{
-                username:Meteor.user().username
-              }
-            });
-          }
-          else{
-            console.log("No User");
-          }
-      });
-
-    }
-
-
-    render() {
-      return (
-        <div>
-        <div className = "wrapper wrapper-top">
-                    <PrivateHeader  title="BoilerPlate"  />
-                    <p className = "logged-in-as">Logged in as:{this.state.username} </p>
-
-
-            </div>
-
-
-
-
-        </div>
-      );
-    }
-
-
-  }
+export default createContainer(() => {
+  Meteor.subscribe("userList")
+    return {
+      username:Meteor.user() != undefined ? Meteor.user().username : 'undefined',
+      allUsers:Meteor.users.find({}).fetch()
+    };
+}, Home);
