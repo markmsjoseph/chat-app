@@ -2,9 +2,10 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import {Session} from 'meteor/session';
 import {Chat} from '../api/chat';
+import { createContainer } from 'meteor/react-meteor-data';
 import {browserHistory,withRouter} from "react-router-dom"
 
-export default class ChatComponent extends React.Component {
+export  class ChatComponent extends React.Component {
 
   constructor(props) {
     super(props);
@@ -165,14 +166,26 @@ export default class ChatComponent extends React.Component {
 
   renderMessages(){
     return this.state.msg.reverse().map((post)=>{
-      return <div>
 
-                  <div className="chatBox">
-                      <p key = {post._id} className = "chatSender_Title">{post.yourId} says:</p>
-                        <p className = "chatActualMessage">{post.message}</p>
+      let row = 'row';
+      let chatSide=' item-chatBox leftChatSide';
+      console.log("USERNAME :",this.props.username, " and ", post.yourId);
+      if(post.yourId == this.props.username){
+        console.log("IT WORKSSSSSSSSSSSSSSS");
+        chatSide=' item-chatBox rightChatSide';
+        row = ' row justify-content-end';
+      }
 
-                  </div>
-          </div>
+      return   <div>
+                <div className={row}>
+                      <div className={chatSide}>
+
+
+                                  <p key = {post._id} className = "item-chatActualMessage">{post.message}</p>
+
+                                </div>
+                    </div>
+        </div>
     })
   }
 
@@ -181,13 +194,19 @@ export default class ChatComponent extends React.Component {
   render() {
     // console.log("rendering time");
     return (
-      <div>
+      <div className="container-fluid">
+        <div className="row">
         <form onSubmit={this.onSubmit.bind(this)}>
-              <input className=" chatInputBox " type="text" ref="senderMsg" placeholder="Enter Message"/>
-              <button className = "sendChatMessage">Send Message </button>
-        </form>
 
-        {this.renderMessages()}
+              <textarea className=" item-chatInputBox form-control form-control-lg" type="text" ref="senderMsg" placeholder="Enter Message"/>
+              <button className = "button item-sendChatMessage float-right">Send Message </button>
+
+        </form>
+          </div>
+
+
+                  {this.renderMessages()}
+
 
       </div>
     );
@@ -195,3 +214,9 @@ export default class ChatComponent extends React.Component {
 
 
   }
+
+  export default createContainer(() => {
+      return {
+        username:Meteor.user() != undefined ? Meteor.user().username : 'undefined'
+      };
+  }, ChatComponent);

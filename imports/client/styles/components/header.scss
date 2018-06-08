@@ -1,15 +1,156 @@
+
+@mixin desktopView(){
+  //apply styles when the browser is atleast 50rem
+  @media (min-width:50rem){
+    @content
+  }
+
+}
+@mixin smallestPhoneSizes(){
+  @media (max-width:360px){
+      @content
+  }
+}
+
+//target screens that are only between 360 and 425 px
+@mixin mediumSizedPhones(){
+  @media only screen and (max-width: 425px) and (min-width: 360px)  {
+      @content
+  }
+}
+
+@mixin tablets(){
+  @media only screen and (max-width: 768px) and (min-width: 425px)  {
+      @content
+  }
+}
+
+
+
+
 .header{
   background-color: $mediumColor;
   padding-bottom:40px;
 }
 
 .header-title{
-  font-size: 60px;
+  font-size: 4vw;
   color:white;
 }
 
 
 .header-loggedInAs{
   color:white;
-  margin: 10px;
+  margin: 2px;
+}
+
+.header_nav_toggle{
+
+  cursor: pointer;
+  width: 3rem;
+  height: 3rem;
+  position: fixed;
+  top: 4%;
+  left:3%;
+
+
+  @include desktopView{
+    display:none;
+  }
+}
+
+.header-logoutButton{
+  background-color:$lightColor;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-transform: uppercase;
+
+  @include smallestPhoneSizes{
+      display:none;
+  }
+
+  @include mediumSizedPhones{
+      display:none;
+  }
+
+  @include tablets{
+      display:none;
+  }
+
+
+}
+
+.is-nav-open .header-logoutButton{
+  background-color:$lightColor;
+  border: none;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  line-height: 1.2;
+  margin-bottom: 10px;
+  padding: 10px;
+  text-transform: uppercase;
+  @include smallestPhoneSizes{
+    display: block;
+width: 100%;
+position: absolute;
+top: 12%;
+z-index: 999;
+  }
+
+  @include mediumSizedPhones{
+    display: block;
+width: 100%;
+position: absolute;
+top: 12%;
+z-index: 999;
+  }
+
+  @include tablets{
+    display: block;
+width: 100%;
+position: absolute;
+top: 12%;
+z-index: 999;
+  }
+
+
+  @include desktopView{
+  display: block;
+
+  }
+
+
+}
+
+
+//if the nav is open when we expand to desktop mode, we change the isopen styles to suit desktop view
+.is-nav-open .page-content__sidebar-menu{
+  width: 100vw;
+  position: absolute;
+  top: 11%;
+  left: -100vw;
+  transition: left .3s ease;
+  z-index: 1;
+  padding: 30px;
+  padding-bottom: 100px;
+
+  color:white;
+  background-color: $darkColor;
+    left:0;
+    @include desktopView{
+    display: none;
+
+    }
+}
+
+//if there is the class is-nav-open present, style the sidebar, if is-nav-open never exist, the styles will never be applieds
+.is-nav-open .page-content__sidebar{
+    left:0;
+
 }

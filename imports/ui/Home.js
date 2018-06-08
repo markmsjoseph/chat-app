@@ -18,10 +18,13 @@ export class Home extends React.Component {
             return this.props.allUsers.map((user)=>{
                 let redirectToChat = `/home/${user._id}`;
                 return(
+
                   <div>
-                    <p key = {user._id}>{user.username}</p>
-                    <Link to ={redirectToChat} className='goToChat__button'>Chat with {user.username}</Link>
+                    <Link to ={redirectToChat} className='goToChat__button item-chat-header' key = {user._id}>
+                        <div className="row item-chat"> {user.username}  </div>
+                    </Link>
                   </div>
+
                 )
             })
       }
@@ -36,8 +39,12 @@ export class Home extends React.Component {
 
                             </div>
                         </div>
-
-                          {this.renderAllUsers()}
+                        <div className="container-fluid ">
+                            <div className="row justify-content-center item-availableUsersHeading">
+                                  <h3>Users available to chat</h3>
+                            </div>
+                              {this.renderAllUsers()}
+                        </div>
                   </div>
           );
       }

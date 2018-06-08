@@ -1,0 +1,65 @@
+//************************************************* HOMEPAGE USERS TO CHAT WITH *************************************
+.item-chat{
+  margin: 10px;
+  background-color: white;
+  padding: 10px;
+}
+
+.item-chat:hover{
+background-color: $mediumColor;
+}
+
+.item-chat-header{
+  color: $mediumColor;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.item-chat-header:hover{
+  background-color: $mediumColor;
+    font-size: 18px;
+    font-weight: 600;
+    text-decoration: none;
+    color: white;
+}
+
+.item-availableUsersHeading{
+  font-size: 20px;
+  font-weight: 600;
+  font-family: cursive;
+  padding: 10px;
+}
+
+//************************************************* CHAT COMPONENT *************************************
+.item-sendChatMessage{
+
+}
+
+.item-chatInputBox{
+  width:100vw;
+}
+
+.item-chatBox{
+      background: white;
+      min-width: 100px;
+      padding: 6px;
+      border-radius: 2px;
+      box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.07);
+      margin: 5px;
+
+}
+
+
+.item-chatActualMessage{
+    font-family: cursive;
+    padding: 5px;
+}
+
+.leftChatSide{
+    background-color: $lightColor;
+    color: white;
+}
+
+.rightChatSide{
+
+}

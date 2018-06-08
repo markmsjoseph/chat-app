@@ -47,6 +47,17 @@ Tracker.autorun(() => {
   }
 });
 
+
+
+Tracker.autorun(() => {
+      const isNavOpen = Session.get('isNavOpen');
+      //switch between true and false based on the isNavOpen value
+      document.body.classList.toggle('is-nav-open', isNavOpen);
+});
+
+
+
 Meteor.startup(() => {
+  Session.set('isNavOpen', false);//set the navigation to be closed by default
   ReactDOM.render(routes, document.getElementById('app'));
 });
