@@ -54,7 +54,7 @@ export  class MessagingRoom extends React.Component {
                   <div className = " row tester justify-content-center">
                                 <Link to ="/home">All Chats</Link>
 
-                                
+
                   </div>
 
 

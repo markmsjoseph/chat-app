@@ -195,21 +195,20 @@ export  class ChatComponent extends React.Component {
     // console.log("rendering time");
     return (
       <div>
-      <div className="container-fluid item-messagingWrapper">
-        <div className="row item-sendMessageForm justify-content-center">
-        <form className = "" onSubmit={this.onSubmit.bind(this)}>
-
-              <textarea className=" item-chatInputBox form-control form-control-lg" type="text" ref="senderMsg" placeholder="Enter Message"/>
-              <button className = "button item-sendChatMessage float-right">Send Message </button>
-
-        </form>
-          </div>
-  </div>
-  <div className="container-fluid item-messagingWrapperForMEssages">
+            <div className="container-fluid item-messagingWrapperForMEssages">
                   {this.renderMessages()}
+            </div>
 
-</div>
-    </div>
+            <div className="container-fluid item-messagingWrapper">
+                <div className="row item-sendMessageForm justify-content-center">
+                          <form className = "" onSubmit={this.onSubmit.bind(this)}>
+                                <textarea className=" item-chatInputBox form-control form-control-lg" type="text" ref="senderMsg" placeholder="Enter Message"/>
+                                <button className = "button item-sendChatMessage float-right">Send Message </button>
+                          </form>
+                  </div>
+            </div>
+
+      </div>//end main div
     );
   }
 
