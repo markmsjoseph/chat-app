@@ -20,7 +20,7 @@
 }
 
 @mixin tablets(){
-  @media only screen and (max-width: 768px) and (min-width: 425px)  {
+  @media only screen and (max-width: 800px) and (min-width: 425px)  {
       @content
   }
 }
@@ -66,32 +66,32 @@
 }
 
 .header-logoutButton{
-  background-color:$lightColor;
-  border: none;
-  color: white;
-  cursor: pointer;
-  font-size: 14px;
-  line-height: 1.2;
-  margin-bottom: 10px;
-  padding: 10px;
-  text-transform: uppercase;
+      background-color:$lightColor;
+      border: none;
+      color: white;
+      cursor: pointer;
+      font-size: 14px;
+      line-height: 1.2;
+      margin-bottom: 10px;
+      padding: 10px;
+      text-transform: uppercase;
 
-  @include smallestPhoneSizes{
-      display:none;
-  }
+      @include smallestPhoneSizes{
+          display:none;
+      }
 
-  @include mediumSizedPhones{
-      display:none;
-  }
+      @include mediumSizedPhones{
+          display:none;
+      }
 
-  @include tablets{
-      display:none;
-  }
+      @include tablets{
+          display:none;
+      }
 
 
 }
 
-.is-nav-open .header-logoutButton{
+.is-nav-open .page-content__sidebar-menu .header-logoutButton{
   background-color:$lightColor;
   border: none;
   color: white;
@@ -103,31 +103,31 @@
   text-transform: uppercase;
   @include smallestPhoneSizes{
     display: block;
-width: 100%;
-position: absolute;
-top: 12%;
-z-index: 999;
+    width: 100%;
+    position: absolute;
+    top: 12%;
+    z-index: 999;
   }
 
   @include mediumSizedPhones{
-    display: block;
-width: 100%;
-position: absolute;
-top: 12%;
-z-index: 999;
+      display: block;
+      width: 100%;
+
+      top: 12%;
+      z-index: 999;
   }
 
   @include tablets{
-    display: block;
-width: 100%;
-position: absolute;
-top: 12%;
-z-index: 999;
+      display: block;
+      width: 100%;
+
+      top: 12%;
+      z-index: 999;
   }
 
 
   @include desktopView{
-  display: block;
+      display: block;
 
   }
 
@@ -137,9 +137,10 @@ z-index: 999;
 
 //if the nav is open when we expand to desktop mode, we change the isopen styles to suit desktop view
 .is-nav-open .page-content__sidebar-menu{
-  width: 100vw;
-      position: fixed;
-      top: 14%;
+      display: block;
+      width: 100vw;
+      position: absolute;
+      top: 100%;
       left: -100vw;
       transition: left .3s ease;
       z-index: 1;
@@ -152,6 +153,10 @@ z-index: 999;
     display: none;
 
     }
+}
+
+.page-content__sidebar-menu{
+      display: none;
 }
 
 //if there is the class is-nav-open present, style the sidebar, if is-nav-open never exist, the styles will never be applieds

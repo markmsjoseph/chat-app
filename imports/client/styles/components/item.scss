@@ -5,6 +5,16 @@
   padding: 10px;
 }
 
+.tester{
+  position: absolute;
+  background-color: $lightColor;
+  top: 100%;
+  width: 100%;
+  a{
+    color: white;
+  }
+}
+
 .item-chat:hover{
 background-color: $mediumColor;
 }

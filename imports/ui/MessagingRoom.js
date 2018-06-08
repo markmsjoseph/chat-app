@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import ChatComponent from './ChatComponent';
 import {Chat} from '../api/chat';
 import PrivateHeader from './PrivateHeader';
+import { createContainer } from 'meteor/react-meteor-data';
 // import {Session} from 'meteor/session';
 
 
@@ -14,7 +15,7 @@ import PrivateHeader from './PrivateHeader';
 //ALL MESSAGES PAGE WHERE THEY CAN SEE THE CHATS WITH EVERYONE THEY MESSAGED
     //pull up all chats where the userId matches yours as the sender
 
-export default class MessagingRoom extends React.Component {
+export  class MessagingRoom extends React.Component {
 
   constructor(props) {
     super(props);
@@ -48,11 +49,19 @@ export default class MessagingRoom extends React.Component {
                   <div className = "jumborton">
                       <p className = "header-loggedInAs text-right">Logged in as:{this.props.username} </p>
                         <PrivateHeader   />
+
                   </div>
+                  <div className = " row tester justify-content-center">
+                                <Link to ="/home">All Chats</Link>
+
+                                
+                  </div>
+
+
               </div>
 
-              <Link to ="/home">All Chats</Link>
-        
+
+
               <ChatComponent props={this.props}/>
               {this.displayMessages()}
 
@@ -62,3 +71,9 @@ export default class MessagingRoom extends React.Component {
 
 
   }
+
+  export default createContainer(() => {
+      return {
+        username:Meteor.user() != undefined ? Meteor.user().username : 'undefined'
+      };
+  }, MessagingRoom);
