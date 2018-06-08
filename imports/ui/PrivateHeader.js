@@ -31,7 +31,7 @@ export class PrivateHeader extends React.Component {
           <img className = "header_nav_toggle" src =  {imageSource} onClick = {this.onImageClick.bind(this)}/>
           <button className = "header-logoutButton float-right mt-2" onClick={this.onLogout.bind(this)}>Logout</button>
           <h1 className = "header-title text-center"> {this.props.title}</h1>
-          <h3 className = "subtitle-bar text-center"> {this.props.subtitle}</h3>
+          <h3 className = "subtitle-bar text-center"> {this.props.chatWith}</h3>
           <div className="page-content__sidebar-menu">
 
           </div>

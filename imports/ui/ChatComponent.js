@@ -50,7 +50,7 @@ export  class ChatComponent extends React.Component {
 
               //THERE WAS A PREVIOUS CHAT SO WE NEED TO RETRIEVE MESSAGES
               else if(currentChat[0]){
-                console.log("THERE WAS A PREVIOUS CHAT 1");
+                // console.log("THERE WAS A PREVIOUS CHAT 1");
                   // console.log("--------SENDER ID: ", currentChat[0].senderId);
                   const currentChat = Chat.find({senderId:yourID, receiverId:idTwo}).fetch();
                   this.setState(()=>{
@@ -61,7 +61,7 @@ export  class ChatComponent extends React.Component {
               }//end else
 
               else if(currentChat2[0]){
-                  console.log("THERE WAS A PREVIOUS CHAT 2");
+                  // console.log("THERE WAS A PREVIOUS CHAT 2");
                   const currentChat = Chat.find({senderId:idTwo, receiverId:yourID}).fetch();
                   this.setState(()=>{
                     return{
@@ -96,7 +96,7 @@ export  class ChatComponent extends React.Component {
 
         //IF THERE IS A MSG AND THE MESAGE ARRAY IS EMPTY, CREATE A NEW CHAT OTHERWISE WE READ DATA FROM THE OLD CHAT
         if(newMessage && this.state.msg.length == 0 ){
-              console.log("---------------------------CREATED NEW CHAT AND INSERT FIRST MSG: YOUR ID ", Meteor.userId(), "RECIEVER ID ",  this.props.props.location.pathname.split('/')[2]);
+              //console.log("---------------------------CREATED NEW CHAT AND INSERT FIRST MSG: YOUR ID ", Meteor.userId(), "RECIEVER ID ",  this.props.props.location.pathname.split('/')[2]);
               let userAndMessage = {message:newMessage, yourId:this.state.currentChatIDName};
               let yourID = Meteor.userId();
               let idTwo = this.props.props.location.pathname.split('/')[2];
@@ -108,9 +108,9 @@ export  class ChatComponent extends React.Component {
               //create a chat only if person sends a msg and pass in the id of the person who is selling the item
 
               Meteor.call('chat.create', [this.props.props.location.pathname.split('/')[2], this.state.currentChatIDName, this.props.props.location.pathname.split('/')[3]])
-              console.log("DATA I WANT*************************************", this.props.props.location.pathname.split('/'));
+              //console.log("DATA I WANT*************************************", this.props.props.location.pathname.split('/'));
               Meteor.call('chat.insertMsg',[yourID, idTwo, userAndMessage])
-                console.log("GOING TO INSERT:", userAndMessage, "into chat of:", this.props.props.location.pathname.split('/')[2]);
+                //console.log("GOING TO INSERT:", userAndMessage, "into chat of:", this.props.props.location.pathname.split('/')[2]);
               this.refs.senderMsg.value = '';
               // console.log("STATE: ", this.state.msg);
               // let stateArray = this.state.msg;
@@ -136,12 +136,12 @@ export  class ChatComponent extends React.Component {
                 let yourID = Meteor.userId();
                 let idTwo = this.props.props.location.pathname.split('/')[2];
                 const currentChat = Chat.find({senderId:yourID, receiverId:idTwo}).fetch();
-                console.log("DATABASE QUERY: db.chat.find({\"senderId:\"",yourID, ", \"receiverId:\"",idTwo,"});");
-                console.log(currentChat);
+                //console.log("DATABASE QUERY: db.chat.find({\"senderId:\"",yourID, ", \"receiverId:\"",idTwo,"});");
+                //console.log(currentChat);
 
                 const currentChat2 = Chat.find({senderId:idTwo, receiverId:yourID}).fetch();
-                console.log("DATABASE QUERY: db.chat.find({\"senderId:\"",idTwo, ", \"receiverId:\"",yourID,"});");
-                console.log(currentChat2);
+                //console.log("DATABASE QUERY: db.chat.find({\"senderId:\"",idTwo, ", \"receiverId:\"",yourID,"});");
+                //console.log(currentChat2);
 
 
                 //THERE WAS A PREVIOUS CHAT SO WE NEED TO RETRIEVE MESSAGES
@@ -150,14 +150,14 @@ export  class ChatComponent extends React.Component {
                     const currentChat = Chat.find({senderId:yourID, receiverId:idTwo}).fetch();
 
                     Meteor.call('chat.insertMsg',[yourID, idTwo, userAndMessage])
-                    console.log("1-----INSERT ANOTHER MSG: YOUR ID ", Meteor.userId(), "RECIEVER ID ",  this.props.props.location.pathname.split('t/')[1]);
+                    //console.log("1-----INSERT ANOTHER MSG: YOUR ID ", Meteor.userId(), "RECIEVER ID ",  this.props.props.location.pathname.split('t/')[1]);
                       this.refs.senderMsg.value = '';
                 }//end else
 
                 else {
                     const currentChat = Chat.find({senderId:idTwo, receiverId:yourID}).fetch();
                     Meteor.call('chat.insertMsg',[idTwo, yourID, userAndMessage])
-                    console.log("2-----INSERT ANOTHER MSG: YOUR ID ", Meteor.userId(), "RECIEVER ID ",  this.props.props.location.pathname.split('t/')[1]);
+                    //console.log("2-----INSERT ANOTHER MSG: YOUR ID ", Meteor.userId(), "RECIEVER ID ",  this.props.props.location.pathname.split('t/')[1]);
                       this.refs.senderMsg.value = '';
                 }//end else
         }
@@ -165,18 +165,18 @@ export  class ChatComponent extends React.Component {
 
 
   renderMessages(){
-    return this.state.msg.reverse().map((post)=>{
+    return this.state.msg.map((post)=>{
 
       let row = 'row';
       let chatSide=' item-chatBox leftChatSide';
-      console.log("USERNAME :",this.props.username, " and ", post.yourId);
+      //console.log("USERNAME :",this.props.username, " and ", post.yourId);
       if(post.yourId == this.props.username){
-        console.log("IT WORKSSSSSSSSSSSSSSS");
+        //console.log("IT WORKSSSSSSSSSSSSSSS");
         chatSide=' item-chatBox rightChatSide';
         row = ' row justify-content-end';
       }
 
-      return   <div>
+      return   <div >
                 <div className={row}>
                       <div className={chatSide}>
 
@@ -194,21 +194,22 @@ export  class ChatComponent extends React.Component {
   render() {
     // console.log("rendering time");
     return (
-      <div className="container-fluid">
-        <div className="row">
-        <form onSubmit={this.onSubmit.bind(this)}>
+      <div>
+      <div className="container-fluid item-messagingWrapper">
+        <div className="row item-sendMessageForm justify-content-center">
+        <form className = "" onSubmit={this.onSubmit.bind(this)}>
 
               <textarea className=" item-chatInputBox form-control form-control-lg" type="text" ref="senderMsg" placeholder="Enter Message"/>
               <button className = "button item-sendChatMessage float-right">Send Message </button>
 
         </form>
           </div>
-
-
+  </div>
+  <div className="container-fluid item-messagingWrapperForMEssages">
                   {this.renderMessages()}
 
-
-      </div>
+</div>
+    </div>
     );
   }
 

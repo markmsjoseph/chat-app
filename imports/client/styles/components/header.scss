@@ -31,6 +31,12 @@
 .header{
   background-color: $mediumColor;
   padding-bottom:40px;
+  position: fixed;
+  z-index: 999;
+}
+.header-subHeader{
+  position: fixed;
+  top:14%;
 }
 
 .header-title{
@@ -132,17 +138,16 @@ z-index: 999;
 //if the nav is open when we expand to desktop mode, we change the isopen styles to suit desktop view
 .is-nav-open .page-content__sidebar-menu{
   width: 100vw;
-  position: absolute;
-  top: 11%;
-  left: -100vw;
-  transition: left .3s ease;
-  z-index: 1;
-  padding: 30px;
-  padding-bottom: 100px;
-
-  color:white;
-  background-color: $darkColor;
-    left:0;
+      position: fixed;
+      top: 14%;
+      left: -100vw;
+      transition: left .3s ease;
+      z-index: 1;
+      padding: 30px;
+      padding-bottom: 100px;
+      color: white;
+      background-color: #3700B3;
+      left: 0;
     @include desktopView{
     display: none;
 

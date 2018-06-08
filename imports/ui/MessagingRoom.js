@@ -34,12 +34,14 @@ export default class MessagingRoom extends React.Component {
         this.postTracker =  Tracker.autorun(() => {
             Meteor.subscribe('specificChatSubscription');
             const thisChat = Chat.find({senderId:Meteor.userId()}).fetch();
+
         });
 
 
     }
 
     render() {
+      console.log(this.props.location);
       return (
         <div>
             <div className = "container-fluid header">
@@ -50,10 +52,10 @@ export default class MessagingRoom extends React.Component {
               </div>
 
               <Link to ="/home">All Chats</Link>
-              <h1 className = "chatHeader">ChatRoom </h1>
+        
               <ChatComponent props={this.props}/>
               {this.displayMessages()}
-              
+
         </div>
       );
     }

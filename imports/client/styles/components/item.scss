@@ -36,7 +36,13 @@ background-color: $mediumColor;
 }
 
 .item-chatInputBox{
-  width:100vw;
+  width:95vw;
+}
+
+.item-sendMessageForm{
+  border-bottom: 3px solid #6200ee;
+  background-color: #dedede;
+  padding-top: 10px;
 }
 
 .item-chatBox{
@@ -62,4 +68,13 @@ background-color: $mediumColor;
 
 .rightChatSide{
 
+}
+.item-messagingWrapper{
+  position: fixed;
+  bottom: 0;
+}
+
+.item-messagingWrapperForMEssages{
+  bottom: 13%;
+      position: fixed;
 }

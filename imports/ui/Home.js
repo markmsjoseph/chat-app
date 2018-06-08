@@ -39,7 +39,7 @@ export class Home extends React.Component {
 
                             </div>
                         </div>
-                        <div className="container-fluid ">
+                        <div className="container-fluid header-subHeader">
                             <div className="row justify-content-center item-availableUsersHeading">
                                   <h3>Users available to chat</h3>
                             </div>
