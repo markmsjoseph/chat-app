@@ -13,6 +13,7 @@ export class Home extends React.Component {
       componentWillMount() {
           //set the global session variable currentPagePrivacy to the value that was passed in as props from the route component in main.js
           Session.set('currentPagePrivacy', this.props.priavteOrPublic);//set session id
+            Session.set('isNavOpen', false);//set the navigation to be closed by default
       }
       renderAllUsers(){
             return this.props.allUsers.map((user)=>{
@@ -37,14 +38,16 @@ export class Home extends React.Component {
                                 <p className = "header-loggedInAs text-right">Logged in as:{this.props.username} </p>
                                   <PrivateHeader   />
 
+                                  <div className="container-fluid header-subHeader">
+                                      <div className="row justify-content-center item-availableUsersHeading">
+                                            <h3>Users available to chat</h3>
+                                      </div>
+                                        {this.renderAllUsers()}
+                                  </div>
+
                             </div>
                         </div>
-                        <div className="container-fluid header-subHeader">
-                            <div className="row justify-content-center item-availableUsersHeading">
-                                  <h3>Users available to chat</h3>
-                            </div>
-                              {this.renderAllUsers()}
-                        </div>
+
                   </div>
           );
       }

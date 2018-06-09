@@ -85,6 +85,14 @@ background-color: $mediumColor;
 }
 
 .item-messagingWrapperForMEssages{
-  bottom: 17%;
+
       position: fixed;
+      height: 60vh;
+    overflow: scroll;
+}
+.myCLassMEssages{
+  position: absolute;
+  top: 100%;
+  height: 80vh;
+  left:0;
 }

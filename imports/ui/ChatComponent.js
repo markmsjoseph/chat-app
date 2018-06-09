@@ -23,7 +23,8 @@ export  class ChatComponent extends React.Component {
           // }
           this.postTracker =  Tracker.autorun(() => {
 
-
+            var element = document.getElementById("myID");
+            element.scrollTop = element.scrollHeight;
 
               //we get the username to be used later. we need to call this in tracker autorun because at first, the user is null because
               //of different rendering times, when we get the user, then we set the state to the username
@@ -176,7 +177,7 @@ export  class ChatComponent extends React.Component {
         row = ' row justify-content-end';
       }
 
-      return   <div >
+      return   <div className="container">
                 <div className={row}>
                       <div className={chatSide}>
 
@@ -194,8 +195,8 @@ export  class ChatComponent extends React.Component {
   render() {
     // console.log("rendering time");
     return (
-      <div>
-            <div className="container-fluid item-messagingWrapperForMEssages">
+      <div className = "myCLassMEssages">
+            <div id = "myID" className="container-fluid item-messagingWrapperForMEssages">
                   {this.renderMessages()}
             </div>
 

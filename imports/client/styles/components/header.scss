@@ -1,33 +1,3 @@
-
-@mixin desktopView(){
-  //apply styles when the browser is atleast 50rem
-  @media (min-width:50rem){
-    @content
-  }
-
-}
-@mixin smallestPhoneSizes(){
-  @media (max-width:360px){
-      @content
-  }
-}
-
-//target screens that are only between 360 and 425 px
-@mixin mediumSizedPhones(){
-  @media only screen and (max-width: 425px) and (min-width: 360px)  {
-      @content
-  }
-}
-
-@mixin tablets(){
-  @media only screen and (max-width: 800px) and (min-width: 425px)  {
-      @content
-  }
-}
-
-
-
-
 .header{
   background-color: $mediumColor;
   padding-bottom:40px;
@@ -35,19 +5,55 @@
   z-index: 999;
 }
 .header-subHeader{
-  position: fixed;
-  top:14%;
+  position: absolute;
+  top:100%;
 }
 
 .header-title{
-  font-size: 4vw;
+  font-size: 6vw;
   color:white;
+  @include smallestPhoneSizes{
+font-size: 9vw;
+  }
+
+  @include mediumSizedPhones{
+
+  }
+
+  @include tablets{
+
+  }
+
+
+  @include desktopView{
+
+  }
+
 }
 
 
 .header-loggedInAs{
   color:white;
   margin: 2px;
+  font-size:14px;
+
+  @include smallestPhoneSizes{
+      font-size: 3vw;
+  }
+
+  @include mediumSizedPhones{
+  font-size: 2vw;
+  }
+
+  @include tablets{
+font-size: 2vw;
+  }
+
+
+  @include desktopView{
+  font-size:14px;
+  }
+
 }
 
 .header_nav_toggle{
@@ -104,7 +110,7 @@
   @include smallestPhoneSizes{
     display: block;
     width: 100%;
-  
+
     top: 12%;
     z-index: 999;
   }

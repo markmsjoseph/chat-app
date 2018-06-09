@@ -54,7 +54,7 @@ export  class MessagingRoom extends React.Component {
                   <div className = " row tester justify-content-center">
                                 <Link to ="/home">All Chats</Link>
 
-
+                                <ChatComponent props={this.props}/>
                   </div>
 
 
@@ -62,7 +62,7 @@ export  class MessagingRoom extends React.Component {
 
 
 
-              <ChatComponent props={this.props}/>
+
               {this.displayMessages()}
 
         </div>
