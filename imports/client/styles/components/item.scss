@@ -42,7 +42,7 @@ background-color: $mediumColor;
 
 //************************************************* CHAT COMPONENT *************************************
 .item-sendChatMessage{
-
+margin-top:5px;
 }
 
 .item-chatInputBox{
@@ -87,8 +87,34 @@ background-color: $mediumColor;
 .item-messagingWrapperForMEssages{
 
       position: fixed;
-      height: 60vh;
+      height: 67vh;
     overflow: scroll;
+  @media only screen and (max-height: 514px) and (min-height: 400px)  {
+      height:45vh;
+    }
+  @media only screen and (max-height: 570px) and (min-height: 515px)  {
+    height: 50vh;
+    }
+    @media only screen and (max-height: 639px) and (min-height: 571px)  {
+      height: 55vh;
+      }
+    @media only screen and (max-height: 699px) and (min-height: 640px)  {
+      height: 60vh;
+      }
+      @media only screen and (max-height: 770px) and (min-height: 700px)  {
+        height: 63vh;
+        }
+
+    // @media only screen and (max-height: 700px) and (min-height: 570px)  {
+    //   height: 56vh;
+    //   }
+    //
+    // @media only screen and (max-height: 860px) and (min-height: 730px)  {
+    //   height: 65vh;
+    //   }
+
+
+
 }
 .myCLassMEssages{
   position: absolute;

@@ -10,10 +10,10 @@
 }
 
 .header-title{
-  font-size: 6vw;
+  font-size: 40px;
   color:white;
   @include smallestPhoneSizes{
-font-size: 9vw;
+font-size: 24px;
   }
 
   @include mediumSizedPhones{
