@@ -24,7 +24,7 @@ export class PrivateHeader extends React.Component {
 
     render() {
 
-      const imageSource = this.props.isNavOpen ? 'images/x.svg' : '/images/bars.svg';
+      const imageSource = this.props.isNavOpen ? '/images/x.svg' : '/images/bars.svg';
 
       return (
         <div >
