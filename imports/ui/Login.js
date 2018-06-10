@@ -74,26 +74,28 @@ export default class Login extends React.Component {
                         <div className="boxed-view__box">
                                   <Tabs defaultIndex={1} onSelect={index => console.log(index)}>
 
-                                         <TabList>
-                                           <h1> Welcome to the poerty app</h1>
-                                           <Tab>Login</Tab>
-                                           <Tab>Register</Tab>
+                                         <TabList className="tabtop">
+                                           <Tab>Sign In</Tab>
+                                           <Tab>Sign Up</Tab>
+                                           <h1 className = "chatAppHeader"> Chat App </h1>
+
                                          </TabList>
 
                                          <TabPanel>
                                               <h4 className="login-error">  {this.state.error ? <p>{this.state.error}</p> : undefined }</h4>
-                                                <h3>Already have an account? You can login below</h3>
+                                                <h3 className = "formHeader">Already have an account? You can login below</h3>
                                                 <form onSubmit={this.onSubmitHandler.bind(this)} noValidate>
                                                     <input className = 'form-control form-control-lg' type="email" name="email" ref = "myEmail" placeholder = "email"/>
                                                     <br></br>
                                                     <input className = 'form-control form-control-lg' type="password" name="password" ref = "myPassword" placeholder= "password"/>
                                                     <br></br>
-                                                    <button className='button'> Login</button>
+                                                    <button className='button-login'> Login</button>
                                                 </form>
                                          </TabPanel>
 
                                          <TabPanel>
-                                              <h3>Register with us below to login</h3>
+                                              <h3 className = "formHeader">Register with us to begin chatting</h3>
+                                              <p className="italic">(Its a demo app so you can use a made up email)</p>
                                                 <p className="login-error">  {this.state.error ? <p>{this.state.error}</p> : undefined }</p>
 
                                                <form onSubmit={this.onSubmitHandlerRegister.bind(this)} noValidate>
@@ -108,7 +110,7 @@ export default class Login extends React.Component {
                                                      <input className = 'form-control form-control-lg' type="password" name="password" ref = "myPassword" placeholder= "Password"/>
                                                      <br></br>
 
-                                                      <button className=' button'> Create Account</button>
+                                                      <button className=' button-login'> Create Account</button>
                                                </form>
 
                                         </TabPanel>

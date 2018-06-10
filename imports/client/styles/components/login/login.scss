@@ -9,11 +9,19 @@
 
 .boxed-view__box {
   background-color: $darkColor;
-  border: 1px solid grey;
+
   color: white;
   padding: 2.4rem;
   text-align: center;
 
+}
+.formHeader{
+  margin:30px;
+}
+.chatAppHeader{
+  font-weight: 560;
+font-size: 2.4rem;
+margin-top: 27px;
 }
 
 //************************************************************ TABS STYLING *********************************************************
@@ -28,11 +36,11 @@
 }
 
 
-.react-tabs__tab-list {
-  border-bottom: 1px solid #aaa;
-  margin: 0 0 10px;
-  padding: 0;
-}
+// .react-tabs__tab-list {
+//   border-bottom: 1px solid #aaa;
+//   margin: 0 0 10px;
+//   padding: 0;
+// }
 
 .react-tabs__tab {
   display: inline-block;
@@ -46,10 +54,9 @@
 }
 
 .react-tabs__tab--selected {
-  background: #fff;
-  border-color: #aaa;
-  color: black !important;
-  border-radius: 5px 5px 0 0;
+  background: #6200ee;
+      /* border-color: #aaa; */
+      color: white !important;
 }
 
 .react-tabs__tab--disabled {

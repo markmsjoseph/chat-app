@@ -10,3 +10,17 @@
   text-transform: uppercase;
 
 }
+
+.button-login{
+  background-color:$mediumColor;
+border: none;
+color: white;
+cursor: pointer;
+font-size: 14px;
+line-height: 1.2;
+margin-bottom: 10px;
+padding: 11px;
+border-radius: 46px;
+width: 70%;
+text-transform: uppercase;
+}
