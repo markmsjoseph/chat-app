@@ -1,28 +1,89 @@
+
 .boxed-view {
   align-items: center;
   display: flex;
   justify-content: center;
   height: 100vh;
   width: 100vw;
+
 }
 
 
 .boxed-view__box {
-  background-color: $darkColor;
-
+  background: -webkit-linear-gradient(top, rgb(253, 126, 109) 0%, rgba(253, 126, 109, 0.91) 8%, rgba(212, 63, 119, 0.86) 42%, rgba(106, 42, 178, 0.93) 86%, rgba(106, 42, 178, 0.82) 100%), url(images/image1.jpg);
+  background-repeat: no-repeat;
+  background-size: 700px 500px;
   color: white;
   padding: 2.4rem;
   text-align: center;
-
+  height: 500px;
+  width: 400px;
 }
 .formHeader{
   margin:30px;
 }
 .chatAppHeader{
   font-weight: 560;
-font-size: 2.4rem;
-margin-top: 27px;
+  font-size: 2.4rem;
+  margin-top: 27px;
 }
+
+.inputLoginFormStyles{
+  text-align: center;
+  color: #ffffff ;
+  background-color: #fff0 !important;
+  background-clip: padding-box !important;
+  border: 1px solid #ffffff96 !important;
+}
+
+#myInput::-webkit-input-placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: #ffffff82;
+
+
+}
+
+.glyphicon{
+  color:#ffffff59;
+}
+
+
+.glyphicon-lock:before{
+  padding: 10px;
+  position: absolute;
+  top: -5%;
+}
+
+.glyphicon-user:before{
+  padding: 10px;
+  position: absolute;
+  top: -5%;
+}
+
+.glyphicon-envelope:before{
+  padding: 10px;
+  position: absolute;
+  top: -5%;
+}
+
+.demoAppWords{
+  color: $lightpeach;
+  font-style: italic;
+  font-size: 11px;
+}
+
+
+#myInput		{
+  color:white;
+  width: 65%;
+  -webkit-transition:width 0.3s ease-in-out;
+}
+#myInput:focus	{
+  box-shadow: 0 0 10px #fd7e6d;
+  color:white;
+  width:80%;
+  -webkit-transition:width 0.5s ease-in-out;
+}
+
 
 //************************************************************ TABS STYLING *********************************************************
 .react-tabs__tab-list {
@@ -54,7 +115,7 @@ margin-top: 27px;
 }
 
 .react-tabs__tab--selected {
-  background: #6200ee;
+  background: $lightpeach;
       /* border-color: #aaa; */
       color: white !important;
 }

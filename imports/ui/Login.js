@@ -69,15 +69,17 @@ export default class Login extends React.Component {
     render() {
           return (
             <div className="container">
-                  <div className="row">
+                  <div className="row justify-content-center">
                   <div className="boxed-view">
                         <div className="boxed-view__box">
                                   <Tabs defaultIndex={1} onSelect={index => console.log(index)}>
 
                                          <TabList className="tabtop">
+
+                                           <h1 className = "chatAppHeader"> Chat App </h1>
+
                                            <Tab>Sign In</Tab>
                                            <Tab>Sign Up</Tab>
-                                           <h1 className = "chatAppHeader"> Chat App </h1>
 
                                          </TabList>
 
@@ -85,30 +87,47 @@ export default class Login extends React.Component {
                                               <h4 className="login-error">  {this.state.error ? <p>{this.state.error}</p> : undefined }</h4>
                                                 <h3 className = "formHeader">Already have an account? You can login below</h3>
                                                 <form onSubmit={this.onSubmitHandler.bind(this)} noValidate>
-                                                    <input className = 'form-control form-control-lg' type="email" name="email" ref = "myEmail" placeholder = "email"/>
+                                                    <div className="row justify-content-center">
+                                                        <i class="glyphicon glyphicon-user "></i>
+                                                    <input  id="myInput" className = ' inputLoginFormStyles form-control form-control-lg' type="email" name="email" ref = "myEmail" placeholder = "email"/>
+                                                  </div>
                                                     <br></br>
-                                                    <input className = 'form-control form-control-lg' type="password" name="password" ref = "myPassword" placeholder= "password"/>
-                                                    <br></br>
+                                                      <div className="row justify-content-center">
+                                                          <i class="glyphicon glyphicon-lock "></i>
+                                                        <input id="myInput" className = ' inputLoginFormStyles form-control form-control-lg' type="password" name="password" ref = "myPassword" placeholder= "password"/>
+                                                      </div><br></br>
                                                     <button className='button-login'> Login</button>
                                                 </form>
                                          </TabPanel>
 
                                          <TabPanel>
                                               <h3 className = "formHeader">Register with us to begin chatting</h3>
-                                              <p className="italic">(Its a demo app so you can use a made up email)</p>
+                                              <p className="demoAppWords">(Its a demo app so you can use a made up email)</p>
                                                 <p className="login-error">  {this.state.error ? <p>{this.state.error}</p> : undefined }</p>
 
                                                <form onSubmit={this.onSubmitHandlerRegister.bind(this)} noValidate>
 
 
-                                                      <input className = 'form-control form-control-lg' type="text" name="userName" ref = "userName" placeholder = "User Name"/>
-                                                      <br></br>
+                                                        <div className=" row justify-content-center">
 
-                                                      <input className = 'form-control form-control-lg' type="email" name="email" ref = "myEmail" placeholder = "Email"/>
-                                                     <br></br>
+                                                          <i class="glyphicon glyphicon-user "></i>
+                                                          <input id="myInput" className = 'inputLoginFormStyles form-control form-control-lg' type="text" name="userName" ref = "userName" placeholder = "User Name"/>
 
-                                                     <input className = 'form-control form-control-lg' type="password" name="password" ref = "myPassword" placeholder= "Password"/>
-                                                     <br></br>
+                                                        </div><br></br>
+
+                                                        <div className="  row justify-content-center">
+                                                            <i class="glyphicon glyphicon-envelope "></i>
+                                                          <input id="myInput" className = 'inputLoginFormStyles form-control form-control-lg' type="email" name="email" ref = "myEmail" placeholder = "Email"/>
+
+                                                     </div>
+                                                       <br></br>
+
+                                                       <div className=" row justify-content-center">
+                                                            <i class="glyphicon glyphicon-lock "></i>
+                                                         <input id="myInput" className = 'inputLoginFormStyles form-control form-control-lg' type="password" name="password" ref = "myPassword" placeholder= "Password"/>
+
+                                                     </div>
+                                                       <br></br>
 
                                                       <button className=' button-login'> Create Account</button>
                                                </form>
