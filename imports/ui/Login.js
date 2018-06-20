@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { CSSTransitionGroup } from 'react-transition-group';
+
 
 import {Session} from 'meteor/session';
 // IN ORDER TO VERIFY EMAILS ETC, WE NEED AN SMTP ACCOUNT. THIS STEP WAS SKIPPED but
@@ -69,38 +71,47 @@ export default class Login extends React.Component {
     render() {
           return (
             <div className="container">
+
                   <div className="row justify-content-center">
+                <CSSTransitionGroup transitionName="loginLoad" transitionAppear={true} transitionAppearTimeout={500} transitionEnterTimeout={300} transitionLeaveTimeout={ 300}>
                   <div className="boxed-view">
                         <div className="boxed-view__box">
+
                                   <Tabs defaultIndex={1} onSelect={index => console.log(index)}>
 
                                          <TabList className="tabtop">
 
+
                                            <h1 className = "chatAppHeader"> Chat App </h1>
 
-                                           <Tab>Sign In</Tab>
-                                           <Tab>Sign Up</Tab>
-
+                                          <CSSTransitionGroup transitionName="tabLoad" transitionAppear={true} transitionAppearTimeout={800}  transitionLeave={false} >
+                                                 <Tab>Sign In</Tab>
+                                                 <Tab>Sign Up</Tab>
+                                         </CSSTransitionGroup>
                                          </TabList>
 
-                                         <TabPanel>
-                                              <h4 className="login-error">  {this.state.error ? <p>{this.state.error}</p> : undefined }</h4>
-                                                <h3 className = "formHeader">Already have an account? You can login below</h3>
-                                                <form onSubmit={this.onSubmitHandler.bind(this)} noValidate>
-                                                    <div className="row justify-content-center">
-                                                        <i class="glyphicon glyphicon-user "></i>
-                                                    <input  id="myInput" className = ' inputLoginFormStyles form-control form-control-lg' type="email" name="email" ref = "myEmail" placeholder = "email"/>
-                                                  </div>
-                                                    <br></br>
-                                                      <div className="row justify-content-center">
-                                                          <i class="glyphicon glyphicon-lock "></i>
-                                                        <input id="myInput" className = ' inputLoginFormStyles form-control form-control-lg' type="password" name="password" ref = "myPassword" placeholder= "password"/>
-                                                      </div><br></br>
-                                                    <button className='button-login'> Login</button>
-                                                </form>
-                                         </TabPanel>
+                                               <TabPanel>
+                                                 <CSSTransitionGroup transitionName="switchTabs" transitionAppear={true} transitionAppearTimeout={500} transitionEnterTimeout={800} transitionLeaveTimeout={ 800}>
+                                                    <h4 className="login-error">  {this.state.error ? <p>{this.state.error}</p> : undefined }</h4>
+                                                      <h3 className = "formHeader">Already have an account? You can login below</h3>
+                                                      <form onSubmit={this.onSubmitHandler.bind(this)} noValidate>
+                                                          <div className="row justify-content-center">
+                                                              <i className="glyphicon glyphicon-user "></i>
+                                                          <input  id="myInput" className = ' inputLoginFormStyles form-control form-control-lg' type="email" name="email" ref = "myEmail" placeholder = "email"/>
+                                                        </div>
+                                                          <br></br>
+                                                            <div className="row justify-content-center">
+                                                                <i className="glyphicon glyphicon-lock "></i>
+                                                              <input id="myInput" className = ' inputLoginFormStyles form-control form-control-lg' type="password" name="password" ref = "myPassword" placeholder= "password"/>
+                                                            </div><br></br>
+                                                          <button className='button-login'> Login</button>
+                                                      </form>
+                                                    </CSSTransitionGroup>
+                                               </TabPanel>
+
 
                                          <TabPanel>
+                                           <CSSTransitionGroup transitionName="switchTabs" transitionAppear={true} transitionAppearTimeout={500} transitionEnterTimeout={800} transitionLeaveTimeout={ 800}>
                                               <h3 className = "formHeader">Register with us to begin chatting</h3>
                                               <p className="demoAppWords">(Its a demo app so you can use a made up email)</p>
                                                 <p className="login-error">  {this.state.error ? <p>{this.state.error}</p> : undefined }</p>
@@ -110,20 +121,20 @@ export default class Login extends React.Component {
 
                                                         <div className=" row justify-content-center">
 
-                                                          <i class="glyphicon glyphicon-user "></i>
+                                                          <i className="glyphicon glyphicon-user "></i>
                                                           <input id="myInput" className = 'inputLoginFormStyles form-control form-control-lg' type="text" name="userName" ref = "userName" placeholder = "User Name"/>
 
                                                         </div><br></br>
 
                                                         <div className="  row justify-content-center">
-                                                            <i class="glyphicon glyphicon-envelope "></i>
+                                                            <i className="glyphicon glyphicon-envelope "></i>
                                                           <input id="myInput" className = 'inputLoginFormStyles form-control form-control-lg' type="email" name="email" ref = "myEmail" placeholder = "Email"/>
 
                                                      </div>
                                                        <br></br>
 
                                                        <div className=" row justify-content-center">
-                                                            <i class="glyphicon glyphicon-lock "></i>
+                                                            <i className="glyphicon glyphicon-lock "></i>
                                                          <input id="myInput" className = 'inputLoginFormStyles form-control form-control-lg' type="password" name="password" ref = "myPassword" placeholder= "Password"/>
 
                                                      </div>
@@ -131,11 +142,14 @@ export default class Login extends React.Component {
 
                                                       <button className=' button-login'> Create Account</button>
                                                </form>
+                                                               </CSSTransitionGroup>
 
                                         </TabPanel>
                                   </Tabs>
+
                       </div>
                       </div>
+                         </CSSTransitionGroup>
                           </div>
             </div>
         );

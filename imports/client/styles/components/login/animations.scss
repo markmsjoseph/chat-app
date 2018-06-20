@@ -1,0 +1,33 @@
+
+.loginLoad-appear {
+  opacity: 0.01;
+}
+
+.loginLoad-appear.loginLoad-appear-active {
+  opacity: 1;
+  transition: opacity 500ms ease-in;
+}
+
+
+.tabLoad-appear {
+  opacity: 0.01;
+  right: 100px;
+}
+
+.tabLoad-appear.tabLoad-appear-active {
+  opacity: 1;
+    right: 0px;
+  transition: all 800ms ease-in;
+}
+
+
+.switchTabs-appear {
+  opacity: 0.01;
+
+}
+
+.switchTabs-appear.switchTabs-appear-active {
+  opacity: 1;
+  transition: all 500ms ease-in;
+
+}
