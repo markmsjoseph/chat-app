@@ -3,7 +3,9 @@ import { Meteor } from 'meteor/meteor';
 import {Session} from 'meteor/session';
 import {Chat} from '../api/chat';
 import { createContainer } from 'meteor/react-meteor-data';
-import {browserHistory,withRouter} from "react-router-dom"
+import {browserHistory,withRouter} from "react-router-dom";
+import { CSSTransitionGroup } from 'react-transition-group';
+
 
 export  class ChatComponent extends React.Component {
 
@@ -177,12 +179,12 @@ export  class ChatComponent extends React.Component {
         row = ' row justify-content-end';
       }
 
-      return   <div className="container">
-                <div className={row}>
+      return   <div className="container" key = {post._id} >
+                <div className={row} >
                       <div className={chatSide}>
 
 
-                                  <p key = {post._id} className = "item-chatActualMessage">{post.message}</p>
+                                  <p className = "item-chatActualMessage">{post.message}</p>
 
                                 </div>
                     </div>
@@ -197,7 +199,9 @@ export  class ChatComponent extends React.Component {
     return (
       <div className = "myCLassMEssages">
             <div id = "myID" className="container-fluid item-messagingWrapperForMEssages">
+                <CSSTransitionGroup transitionName="example"   transitionAppear={true} transitionAppearTimeout={300}  transitionLeave={false} >
                   {this.renderMessages()}
+                </CSSTransitionGroup>
             </div>
 
             <div className="container-fluid item-messagingWrapper">

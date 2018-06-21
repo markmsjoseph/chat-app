@@ -45,7 +45,7 @@ export class Home extends React.Component {
                                         {this.renderAllUsers()}
                                   </div>
 
-                            </div>
+                                  </div>
                         </div>
 
                   </div>
